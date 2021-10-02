@@ -7,51 +7,62 @@ const sequelize = require('../config/connection');
 class Product extends Model {}
 
 // set up fields and rules for Product model
+// define columns
+// `Product`
 Product.init(
   {
-    // define columns
-  //   * `Product`
-
-  //   * `id`
-    
-  //     * Integer.
-    
-  //     * Doesn't allow null values.
-    
-  //     * Set as primary key.
-    
-  //     * Uses auto increment.
-  
-  //   * `product_name`
-    
-  //     * String.
-    
-  //     * Doesn't allow null values.
-  
-  //   * `price`
-    
-  //     * Decimal.
-    
-  //     * Doesn't allow null values.
-    
-  //     * Validates that the value is a decimal.
-  
-  //   * `stock`
-    
-  //     * Integer.
-    
-  //     * Doesn't allow null values.
-    
-  //     * Set a default value of `10`.
-    
-  //     * Validates that the value is numeric.
-  
-  //   * `category_id`
-    
-  //     * Integer.
-    
-  //     * References the `Category` model's `id`.
-  
+    // * `id`
+    id: {
+      // * Integer.
+      type: DataTypes.INTEGER,      
+      // * Doesn't allow null values.
+      allowNull: false,
+      // * Set as primary key.
+      primarykey: true,   
+      // * Uses auto increment.
+      autoIncrement: true,
+    },
+    // * `product_name`
+    product_name:{
+      // * String.
+      type: DataTypes.STRING,
+      // * Doesn't allow null values.
+      allowNull: false,
+    },
+    // * `price`
+    price: {
+      // * Decimal.
+      type: DataTypes.DECIMAL(10,2),
+      // * Doesn't allow null values
+      allowNull: false,
+      // * Validates that the value is a decimal.
+      validate:{
+        isDecimal:true,
+      },
+    },
+    // * `stock`
+    stock:{
+      // * Integer.
+      type: DataTypes.INTEGER,
+      // * Doesn't allow null values.
+      allowNull: false,
+      // * Set a default value of `10`.
+      defaultValue: 10,
+      // * Validates that the value is numeric.
+      validate:{
+        isNumeric:true,
+      },
+    },
+    // * `category_id`
+    category_id:{
+      // * Integer.
+      type: DataTypes.INTEGER,
+      // * References the `Category` model's `id`.
+      references: {
+        model: 'category',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
