@@ -1,16 +1,24 @@
 const router = require('express').Router();
+const { restart } = require('nodemon');
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
-
+// find all categories
 router.get('/', async (req, res) => {
-  // find all categories
+  // sends a request to categoryData in category.js, waits for response
   try {
-    // sends a request to categoryData in category-seeds.js, waits for response
-    const categoryData = await Category.findAll(
+    const categoryData 
+    // wait for response from Category model
+    = await Category.findAll(
       {
-        // be sure to include its associated Products
-  } catch {
+        // associated Products        
+        include:[{model:Product}]
+    });
+    // gives an ok 200 status to confirm this route worked
+    res.status(200).json(categoryData);
+  } catch {(err){
+    // fires an internal server error if fail
+    res.status(500).json(err);
   }
 });
 
@@ -18,23 +26,28 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const categoryData = await Category.findByPk(
+    const categoryData = await Category.findByPk(req.params.id, {
+      include:[{model:Product}]
+    });
+    // if no category data?
+    if (!categoryData)
+    }
       {
-        // be sure to include its associated Products
-  } catch {
+  } catch { // thow error
   }
 });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   // create a new category
   try {
-    const categoryData = await Category.findAll(
-      {
-        // be sure to include its associated Products
-  } catch {
+    const categoryData = await Category.create(req.body);
+    // gives ok status when post route completed
+    res.status(200).json(categoryData);
+  } catch (err) {
+  // gives back request error if post route fails
+  res.status(400).json(err);
   }
-});
 });
 
 router.put('/:id', (req, res) => {
@@ -42,7 +55,6 @@ router.put('/:id', (req, res) => {
   try {
     const categoryData = await Category.findAll(
       {
-        // be sure to include its associated Products
   } catch {
   }
 });
@@ -53,7 +65,6 @@ router.delete('/:id', (req, res) => {
   try {
     const categoryData = await Category.findAll(
       {
-        // be sure to include its associated Products
   } catch {
   }
 });
