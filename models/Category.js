@@ -22,7 +22,7 @@ Category.init(
     // * `category_name`    
     category_name: {
       // * String.      
-      type: DataTypes.String, 
+      type: DataTypes.STRING, 
       // * Doesn't allow null values.
       allowNull: false,
   },
