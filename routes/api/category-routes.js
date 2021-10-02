@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         // associated Products        
         include:[{model:Product}]
     });
-    // gives an ok 200 status to confirm this route worked
+    // gives an ok 200 status confirming this route worked
     res.status(200).json(categoryData);
   } catch {(err){
     // fires an internal server error if fail
@@ -26,16 +26,20 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
+    // requires parameter id when passing primary key field
     const categoryData = await Category.findByPk(req.params.id, {
       include:[{model:Product}]
     });
     // if no category data?
-    if (!categoryData)
+    if (!categoryData) {
+      // not found - return this message
+      res.status(404).json({ message: 'No categories found with this id.' });
+      return;
     }
-      {
-  } catch { // thow error
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
   }
-});
 });
 
 router.post('/', async (req, res) => {
