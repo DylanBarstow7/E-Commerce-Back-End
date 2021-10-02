@@ -10,20 +10,20 @@ Category.init(
   {
     // * `id`
     id: {
-      //   * Integer.
+      // * Integer.
       type: DataTypes.INTEGER,
-      //   * Doesn't allow null values.
+      // * Doesn't allow null values.
       allowNull: false,
-      //   * Set as primary key.
+      // * Set as primary key.
       primaryKey: true,
-      //   * Uses auto increment.
+      // * Uses auto increment.
       autoIncrement: true,
     },
     // * `category_name`    
     category_name: {
-      //   * String.      
+      // * String.      
       type: DataTypes.String, 
-      //   * Doesn't allow null values.
+      // * Doesn't allow null values.
       allowNull: false,
   },
 },
