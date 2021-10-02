@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    // requires parameter id when passing primary key field
+    // requires id when passing primary key field
     const categoryData = await Category.findByPk(req.params.id, {
       include:[{model:Product}]
     });
@@ -78,7 +78,7 @@ router.put('/:id', async (req, res) => {
 
 
 router.delete('/:id', async (req, res) => {
-  // delete a category by its `id` value
+  // delete a category determined by its `id` value
   try {
     const categoryData = await Category.destroy({
       where: {
