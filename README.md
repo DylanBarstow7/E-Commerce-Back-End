@@ -29,9 +29,13 @@ Server
 ## Installation
 
 Input each of these into your terminal to correctly create and seed the database.
+
 npm i,
+
 mysql -u root -p,
+
 source db/schema.sql;
+
 npm run seed, npm start
 
 ## Usage
