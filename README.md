@@ -25,7 +25,7 @@ Server
 ![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomDesCat.PNG)
 
 ## Installation
-npm i, source db/schema.sql, npm run seed
+npm i, npm run seed, npm start
 
 ## Usage
 Through requests in Insomnia DB.  Watch the audio tutorial below Table of Contents.
