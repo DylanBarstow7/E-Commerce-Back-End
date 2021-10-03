@@ -27,7 +27,7 @@ Server
 ![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomDesCat.PNG)
 
 ## Installation
-mysql -u root -p, npm i, npm run seed, npm start
+npm i, npm run seed, npm start
 
 ## Usage
 Through requests in Insomnia DB.  Watch the audio tutorial below Table of Contents.
