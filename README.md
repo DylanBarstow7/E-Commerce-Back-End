@@ -13,12 +13,12 @@
 
 ## Description
 Server
-![alt text]()
-![alt text]()
-![alt text]()
-![alt text]()
-![alt text]()
-![alt text]()
+![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomGetTag.PNG)
+![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomGetProdId.PNG)
+![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomCreateCat.PNG)
+![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomCreateProd.PNG)
+![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomDesTag.PNG)
+![alt text](https://github.com/DylanBarstow7/E-Commerce-Back-End/blob/master/Assets/img/EcomDesCat.PNG)
 
 ## Installation
 npm i source schema.sql npm run seed
